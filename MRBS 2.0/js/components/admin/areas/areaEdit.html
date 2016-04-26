@@ -1,0 +1,133 @@
+﻿
+<div style="padding-left:1%">
+    <h2>ADMINISTRATION</h2>
+</div>
+<div class="page-container"
+     style="padding-left:1vh; padding-right:1vh">
+
+    <table data-ng-show="ctrl.editArea" class="domaine">
+        <tr>
+            <td>
+                <label>{{ctrl.option}} un domaine</label>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                Nom :
+            </td>
+
+            <td>
+                <input data-ng-model="ctrl.areaEdited" type="text" />
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <button id="submit" type="submit" data-ng-click="ctrl.saveArea()">Sauvegarder</button>
+            </td>
+        </tr>
+
+    </table>
+    <div data-ng-show="ctrl.selectedArea">
+        <div class="flex-line" style="justify-content:flex-start;align-items:center; border-bottom:1px solid black">
+            <h3 style="margin-right:1%">Salles de </h3>
+            <select data-ng-model="ctrl.selectedArea"
+                    data-ng-options="area.areaName for area in ctrl.Areas"
+                     style="margin-right:1%"></select>
+            &nbsp;
+
+            <span data-ng-click="ctrl.add()" class="glyphicon glyphicon-plus"></span>
+            &nbsp;
+            <span data-ng-click="ctrl.edit()" class="glyphicon glyphicon-edit"></span>
+            &nbsp;
+            <span data-ng-click="ctrl.deleteArea()" class="glyphicon glyphicon-trash"></span>
+        </div>
+        <div>
+            <!--La partie ci-dessous pourrait, voire devrait, être contenue dans le
+        tableau ci-dessus, ou les éléments du tableau seront modifiables dans les
+        champs ci-dessous-->
+            <div style="display: flex; -ms-flex-direction: column; -webkit-flex-direction: column; flex-direction: column;"  >
+                <div >
+                    <label>Nouvelle salle</label>
+                    <i class="glyphicon glyphicon-plus-sign" data-ng-if="!ctrl.AddRoom" data-ng-click="ctrl.AddRoom = true"></i>
+                    <i class="glyphicon glyphicon-minus-sign" data-ng-if="ctrl.AddRoom" data-ng-click="ctrl.AddRoom = false"></i>
+                </div>
+                <div class="pull-right">
+                    <fieldset class="" data-ng-show="ctrl.AddRoom">
+                        <table>
+
+                            <tr>
+                                <td class="first">Nom : </td>
+                                <td><input data-ng-model="ctrl.selectedRoom.roomName" type="text" /></td>
+                            </tr>
+
+                            <tr>
+                                <td class="first">Description : </td>
+                                <td>
+                                    <input data-ng-model="ctrl.selectedRoom.roomDescription" type="text" />
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="first">Nombre de personnes maximum : </td>
+                                <td>
+                                    <input data-ng-model="ctrl.selectedRoom.capacity" type="text" />
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="first">Prix pour une ligue : </td>
+                                <td>
+                                    <input data-ng-model="ctrl.selectedRoom.priceForALeague" type="text" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="first">Prix pour un club : </td>
+                                <td>
+                                    <input data-ng-model="ctrl.selectedRoom.priceForAClub" type="text" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="first">Prix pour un particulier : </td>
+                                <td>
+                                    <input data-ng-model="ctrl.selectedRoom.priceForAPerson" type="text" />
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td><input data-ng-click="ctrl.saveRoom()" type="submit" value="Ajouter une salle" /></td>
+                            </tr>
+
+                        </table>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+        <div style="padding:3%">
+            <table class="table table-bordered table-hover table-condensed">
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Description</th>
+                        <th>Capacité</th>
+                        <th>Ligue</th>
+                        <th>Club</th>
+                        <th>Particulier</th>
+                    </tr>
+                </thead>
+                <tbody data-ng-repeat="room in ctrl.selectedArea.Rooms">
+                    <tr>
+                        <td>{{ room.roomName }}</td>
+                        <td>{{ room.roomDescription }}</td>
+                        <td>{{ room.capacity }}</td>
+                        <td>{{ room.priceForALeague }}</td>
+                        <td>{{ room.priceForAClub }}</td>
+                        <td>{{ room.priceForAPerson }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        </div>
+
+</div>

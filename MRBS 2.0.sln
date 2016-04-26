@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MRBS 2.0", "MRBS 2.0\MRBS 2.0.csproj", "{36F54525-EDCD-4A8A-A2FF-5501B943F010}"
+EndProject
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "NodeSequelizeAPI", "NodeSequelizeAPI\NodeSequelizeAPI.njsproj", "{1983E68A-2725-41E3-BEA2-D935FE861D39}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{36F54525-EDCD-4A8A-A2FF-5501B943F010}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36F54525-EDCD-4A8A-A2FF-5501B943F010}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36F54525-EDCD-4A8A-A2FF-5501B943F010}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36F54525-EDCD-4A8A-A2FF-5501B943F010}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1983E68A-2725-41E3-BEA2-D935FE861D39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1983E68A-2725-41E3-BEA2-D935FE861D39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1983E68A-2725-41E3-BEA2-D935FE861D39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1983E68A-2725-41E3-BEA2-D935FE861D39}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,1 @@
+﻿// Logique de génération des factures mensuelles ou ponctuelles

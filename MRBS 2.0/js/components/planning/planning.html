@@ -1,0 +1,116 @@
+﻿<div class="page-container"
+     role="rowgroup"
+     style="width:100%; height:auto">
+
+    <!--DATEPICKER-->
+    <div role="row" 
+         class="flex-line"
+         style="height: 5vh; border-bottom: 1px solid black; "
+         >
+
+        <h3>{{selectedDate | date: 'EEEE dd MMMM  yyyy'}}</h3>
+        <div role="gridcell" class="center-justified">
+            <div data-nw-date-picker="" selected-date="selectedDate"></div>
+        </div>
+    </div>
+
+    <!--CALENDARS-->
+    <div role="row" class="" 
+         style="height:auto; border-bottom: 1px solid black">
+
+        <span style="width:100%; display:flex; justify-content:center"
+              data-ng-show="!ctrl.viewByTrimester"
+              data-ng-click="ctrl.viewByTrimester = true"
+              class="glyphicon glyphicon-chevron-down btn-lg small-menu-glyph">
+
+        </span>
+
+        <div style="height:auto;"
+             data-ng-if="ctrl.viewByTrimester"
+             colspan="3">
+
+            <div data-nw-calendar=""
+                 style="height:auto;"
+                 on-date-selection="ctrl.selectDate(date)"
+                 selected-date="selectedDate"
+                 number-of-months="3">
+            </div>
+
+        </div>
+
+        <span style="width:100%; display:flex; justify-content:center; border-top:1px solid black"
+              data-ng-show="ctrl.viewByTrimester"
+              data-ng-click="ctrl.viewByTrimester = false"
+              class="glyphicon glyphicon-chevron-up btn-lg small-menu-glyph"></span>
+    </div>
+</div>
+
+<div style="margin-top:3%;" class="page-container">
+    <!--OPTIONS-->
+    <div role="row"
+         style="height:8vh">
+
+        <div role="gridcell" class="col-lg-3  text-center">
+            <label> Affichage :</label>
+            <div>
+                <button data-ng-click="ctrl.setPlanningMode('RoomMode')"
+                        style="width:150px; background-color:#310769; color:white" class="btn-sm nav-pills">
+                    Salle
+                </button>
+            </div>
+            <div>
+                <button data-ng-click="ctrl.setPlanningMode('AreaMode')"
+                        style="width:150px; background-color: #310769; color:white" class="btn-sm nav-pills">
+                    Domaine
+                </button>
+            </div>
+        </div>
+
+        <div role="gridcell" class="col-lg-8" style="display:flex; justify-content:space-around">
+
+            <div>
+                <label class="header-label">Domaine :</label>
+                <select style="width:200px"
+                        class="form-control"
+                        data-ng-model="selectedArea"
+                        data-ng-options="area.areaName for area in ctrl.Areas"></select>
+            </div>
+
+            <div style="width:auto">
+                <div data-ng-show="ctrl.mode == 'RoomMode'">
+                    <label class="header-label">Salle :</label>
+                    <select style="width:200px"
+                            class="form-control"
+                            data-ng-model="selectedRoom"
+                            data-ng-options="room.roomName for room in selectedArea.Rooms"></select>
+                </div>
+                <div style="width:200px" data-ng-hide="ctrl.mode == 'RoomMode'">
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div style="padding:1%">
+        <!--CALENDAR-->
+        <div data-nw-datagrid
+             datasource="ctrl.dataSource"
+             hide-datasource-content="true"
+             row-headers="ctrl.timeSlots"
+             headers="planningTable.columns"
+             prop-header="planningTable.columnsHeadersProperty"
+             are-row-headers-visible="true"
+             table-classes="'table-bordered table table-responsive table-condensed planningboard'"
+             header-classes="'text-center planningboardheaders'"
+             limit-columns="7">
+
+            <planning-event data-ng-repeat="entry in Entries"
+                            event-data="entry"
+                            data-ng-show="entry.view"
+                            time-slots="ctrl.timeSlots"
+                            id-column="planningEvents.idColumn">
+            </planning-event>
+        </div>
+    </div>
+</div>

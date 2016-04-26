@@ -1,0 +1,34 @@
+﻿<div>    
+    <div>
+        Heure de début :
+        <div class="flex-line" data-ng-model="timeStart">
+
+            <select data-ng-model="timeStart.hours"
+                    class="form-control"
+                    data-ng-options="hour for hour in ctrl.AvailableHours">
+
+            </select>
+            <select data-ng-model="timeStart.minutes"
+                    class="form-control"
+                    data-ng-options="minutes for minutes in ctrl.AvailableMinutes">
+
+            </select>
+
+        </div>
+    </div>
+
+    <div data-ng-model="ctrl.dateEnd">
+        Heure de fin :
+        <div class="flex-line" data-ng-model="timeEnd">
+
+            <select data-ng-model="timeEnd.hours"
+                    class="form-control"
+                    data-ng-options="hour for hour in ctrl.AvailableHours">
+            </select>
+            <select data-ng-model="timeEnd.minutes"
+                    class="form-control"
+                    data-ng-options="minutes for minutes in ctrl.AvailableMinutes">
+            </select>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+﻿<table data-ng-class="TableClasses"
+       style="position: relative">
+
+    <thead>
+        <tr>
+            <th data-ng-class="HeaderClasses" class="col-header" data-ng-if="AreRowHeadersVisible"></th>
+
+            <th data-ng-repeat="(keyHeaderColumn, header) in Headers track by $index | limitTo:LimitColumns"
+                 data-ng-class="HeaderClasses">
+                {{ header[propHeader] }}
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr data-ng-click="selectContent(keyLine)"
+            data-ng-repeat="(keyLine, line) in Datasource track by $index | limitTo:LimitRows">
+
+            <td class="{{HeaderClasses}}"
+                data-ng-if="AreRowHeadersVisible"
+                >
+                <div> {{RowHeaders[keyLine] | date : 'HH:mm'}} </div>
+            </td>
+
+            <td data-ng-class="{highlightCell: hover || Datasource[keyLine][keyCol].selected}"
+                data-ng-mouseenter="hover = true"
+                data-ng-mouseleave="hover = false"
+                data-ng-repeat="(keyCol, column) in Datasource[keyLine] track by $index | limitTo:LimitColumns"
+                data-ng-attr-id="{{'c'+ '(' + keyLine + ':' + keyCol + ')'}}"
+                data-ng-click="selectContent(keyLine, keyCol)">
+
+                <div data-ng-if="!HideDatasourceContent">{{Datasource[keyLine][keyCol]}}</div>
+                <div data-ng-if="HideDatasourceContent"></div>
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div data-ng-transclude></div>

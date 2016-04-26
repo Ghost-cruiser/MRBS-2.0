@@ -1,0 +1,27 @@
+﻿<div class="row-calendars">
+    <div style="display:flex; align-items:center">
+            <span class="glyphicon glyphicon-arrow-left left  small-menu-glyph" data-ng-click="ctrl.previousMonth()"></span>
+    </div>
+    <div class="row-calendars">
+        <div data-ng-repeat="(keyMonth, month) in ctrl.DisplayedMonths"
+             data-ng-attr-id="{{'displayedmonth:' + keyMonth}}">
+
+            <label>{{month.currentMonth + ' ' +  month.Year}}</label>
+
+            <div>
+                <div data-nw-datagrid=""
+                     data-on-selected-item-changed="ctrl.SelectDate(item, month);"
+                     data-datasource="month.fullMonth"
+                     data-headers="Headers"
+                     data-are-row-headers-visible="false"
+                     data-table-classes="tableClasses"
+                     data-header-classes="'text-center'">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="display:flex; align-items:center">
+        <span class="glyphicon glyphicon-arrow-right right  small-menu-glyph" data-ng-click="ctrl.nextMonth()"></span>
+    </div>
+</div>
