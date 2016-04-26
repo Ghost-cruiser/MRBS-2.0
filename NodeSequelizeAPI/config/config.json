@@ -1,0 +1,10 @@
+﻿{
+  "development": {
+    "database": "MRBSDB",
+    "dialect": "mssql",
+    "host": "localhost",
+    "password": "rockeur",
+    "port": "1433",
+    "username": "sa"
+  }
+}

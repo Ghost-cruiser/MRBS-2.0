@@ -1,0 +1,2 @@
+D:\Ghost\Documents\WorkSpace\Shared Projects\M2L - Reservations\NodeSequelizeAPI\obj\Debug\NodeSequelizeAPI.njsprojResolveAssemblyReference.cache
+D:\Ghost\Documents\WorkSpace\Shared Projects\M2L - Reservations\NodeSequelizeAPI\bin\Microsoft.NodejsTools.WebRole.dll
