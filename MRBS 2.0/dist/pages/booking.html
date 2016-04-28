@@ -1,0 +1,112 @@
+﻿<form novalidate name="bookingForm" class="container">
+
+    <div style="height:10%; padding:1%; width:100%; justify-content:space-between" class="flex-line">
+        <h2>RESERVATION</h2>
+        <span class="pull-right">
+            <button type="submit" 
+                    data-ng-disabled="bookingForm.$invalid || !ctrl.bookedRooms" 
+                    class="btn btn-primary btn-lg" 
+                    data-ng-click="ctrl.bookRooms()">RESERVER</button>
+            <button class="btn btn-danger btn-lg">ANNULER</button>
+        </span>
+    </div>
+
+    <div style="width:100%; height:auto; padding:1%; border-left:solid" 
+         class="page-container"
+         data-ng-style="{'border-left-color' : ctrl.bookedRooms ? 'green' : 'red'}">
+        <div style="border-bottom:1px solid black; height:5vh">
+            <h3>LES SALLES</h3> 
+        </div>
+        <div class="flex-line" style="height:80%">
+            <div>
+                <div>
+                    <label class="header-label">Domaine :</label>
+                    <select style="width: 200px"
+                            class="form-control"
+                            data-ng-model="ctrl.selectedArea"
+                            data-ng-options="area.areaName for area in ctrl.Areas"></select>
+                </div>
+
+                <div style="width:auto">
+                    <div>
+                        <label class="header-label">Salle :</label>
+                        <span class="glyphicon glyphicon-plus" data-ng-click="ctrl.addSelectedRooms()"></span>
+                        <select multiple=""
+                                size="6"
+                                style="width: 200px"
+                                class="form-control"
+                                data-ng-model="ctrl.selectedRooms"
+                                data-ng-options="room.roomName for room in ctrl.selectedArea.Rooms"></select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group" >
+                <label class="header-label">Salles sélectionnées :</label>
+                    <select style="width: 500px"
+                        class="form-control"
+                        size="5"
+                        data-ng-model="ctrl.selectedBookedRooms"
+                        data-ng-options="room.roomName for room in ctrl.bookedRooms"
+                        required>
+                    </select>
+            </div>
+        </div>
+    </div>
+
+    <div style="height:auto; padding:1%; margin-top:2%; border-left:solid;" 
+         class="page-container"
+         data-ng-style="(bookingForm.entryTitle.$dirty && bookingForm.entryTitle.$error.required) && {'border-left-color': 'red'} ||
+                        ctrl.entry.title && {'border-left-color': 'green'}">
+
+        <div style="border-bottom:1px solid black; height:5vh">
+            <h3>DETAILS</h3>
+        </div>
+        <div class=" flex-line">
+            <div>
+                <div class="form-group">
+                    <label class="header-label">Descritption brève :</label> <br />
+                    <input type="text" name="entryTitle" data-ng-model="ctrl.entry.title" style="width:300px" required />
+                    <span data-ng-show="bookingForm.entryTitle.$dirty && bookingForm.entryTitle.$error.required"
+                          class="help-block">Un titre est requis</span>
+                </div>
+                <div>
+                    <label>Descritption complète <br /> (nombre de personnes, interne/externe...) :</label><br />
+                    <textarea type="text" id="entry_description" data-ng-model="ctrl.entry.description" style="height:150px; width:300px;"></textarea>
+                </div>
+            </div>
+
+            <div>
+                <!--Custom directive nwDatePicker-->
+                <div data-nw-date-picker="" data-selected-date="ctrl.entry.dateStart" data-on-date-changed="ctrl.onDateChanged"></div>
+
+
+                <!--Custom directive nwTimeSpan-->
+                <div data-nw-time-span="" data-date-start="ctrl.entry.dateStart" data-date-end="ctrl.entry.dateEnd"></div>
+            </div>
+        </div>
+    </div>
+
+    <div style="height:auto ; padding:1%; margin-top:2%; border-left:solid" class="page-container">
+        <div style="border-bottom:1px solid black; height:5vh">
+            <h3>PERIODICITE</h3>
+        </div>
+
+        <div data-ng-disabled="!ctrl.viewPerio" id="Select_Periodicity">
+
+            <!--Display semaine-->
+            <label data-ng-click="ctrl.viewWeek = !ctrl.viewWeek">Voir semaine</label>
+            <span data-ng-if="ctrl.viewWeek">
+                <label data-ng-repeat="day in ctrl.days"><input type="checkbox" data-ng-model="ctrl.selectedDays[day]" />{{day}}</label>
+            </span>
+
+        <!--Custom directive handling the Periodicity-->
+            <div data-nw-periodicity=""
+                data-selected-date="ctrl.entry.dateStart"
+                data-periodicity-parameter="ctrl.entry.periodicityParameter"
+                data-periodicity-type="ctrl.entry.periodicityType"
+                data-repeat="ctrl.entry.repeat">
+            </div>
+        </div>
+    </div>
+
+</form>
