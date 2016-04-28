@@ -1,0 +1,81 @@
+[
+  {
+    "outputFileName": "js/temp/shared.bundle.js",
+    "inputFiles": [
+      "js/shared/datetime/datetime.js",
+      "js/shared/datetime/datetime.month.js",
+      "js/shared/datetime/datetime.time.js",
+      "js/shared/datetime/datetime.french.js",
+      "js/shared/datetime/datetime.datetimeFactory.js",
+      "js/shared/datetime/datetime.calcul.js",
+      "js/shared/navigation/navigation.js",
+      "js/shared/navigation/nwNavigationMenuDirective.concat.js",
+      "js/shared/settings/settings.js",
+      "js/shared/settings/settings.LocationService.js",
+      "js/shared/settings/settings.PeriodicityService.js",
+      "js/shared/shared.js",
+      "js/shared/shared.ContextService.js",
+      "js/shared/shared.AreaService.js",
+      "js/shared/shared.NotificationService.js"
+    ]
+  },
+  {
+    "outputFileName": "js/temp/component.area.js",
+    "inputFiles": [
+      "js/components/admin/areas/areas.js",
+      "js/components/admin/areas/AreaEditController.js"
+    ]
+  },
+  {
+    "outputFileName": "js/temp/components.auth.js",
+    "inputFiles": [
+      "js/components/authentication/authentication.js",
+      "js/components/authentication/LoginController.js",
+      "js/components/authentication/LoginService.js",
+      "js/components/authentication/UserController.js"
+    ]
+  },
+  {
+    "outputFileName": "js/temp/components.booking.js",
+    "inputFiles": [
+      "js/temp/components.booking.js"
+    ]
+  },
+  {
+    "outputFileName": "js/temp/components.planning.js",
+    "inputFiles": [
+      "js/components/planning/events/events.js",
+      "js/components/planning/events/events.nwEventDirective.dist.js",
+      "js/components/planning/events/events.EventsService.js",
+      "js/components/planning/planning.js",
+      "js/components/planning/planning.PlanningController.js",
+      "js/components/planning/timeSlotsFactory.js"
+    ]
+  },
+  {
+    "outputFileName": "js/temp/components.prototypes.js",
+    "inputFiles": [
+      "js/temp/components.prototypes.js"
+    ]
+  },
+  {
+    "outputFileName": "js/temp/app.bundle.js",
+    "inputFiles": [
+      "js/app.js",
+      "js/app.Router.dist.js",
+      "js/app.Run.js"
+    ]
+  },
+  {
+    "outputFileName": "css/style.css",
+    "inputFiles": [
+      "css/style.css"
+    ]
+  },
+  {
+    "outputFileName": "dist/js/mrbs-2.0.js",
+    "inputFiles": [
+      "dist/js/mrbs-2.0.js"
+    ]
+  }
+]

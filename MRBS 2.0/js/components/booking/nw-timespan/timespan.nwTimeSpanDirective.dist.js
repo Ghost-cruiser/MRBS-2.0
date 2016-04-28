@@ -14,7 +14,7 @@
             /// <returns></returns>
             return {
                 scope: { dateStart: '=dateStart', dateEnd: '=dateEnd' },
-                templateUrl: 'js/components/booking/nw-timespan/nw-time-span.html',
+                template: '<div><div> Heure de début : <div class="flex-line" data-ng-model="timeStart"><select data-ng-model="timeStart.hours" class="form-control" data-ng-options="hour for hour in ctrl.AvailableHours"></select> <select data-ng-model="timeStart.minutes" class="form-control" data-ng-options="minutes for minutes in ctrl.AvailableMinutes"></select></div> </div><div data-ng-model="ctrl.dateEnd"> Heure de fin : <div class="flex-line" data-ng-model="timeEnd"><select data-ng-model="timeEnd.hours" class="form-control" data-ng-options="hour for hour in ctrl.AvailableHours"> </select> <select data-ng-model="timeEnd.minutes" class="form-control" data-ng-options="minutes for minutes in ctrl.AvailableMinutes"> </select> </div> </div> </div>',
 
                 controllerAs: 'ctrl',
                 // TODO : réorganiser le fichier; 
@@ -120,7 +120,6 @@
                     function adjustHoursFromDateEnd(newValue, isOverConfigTimeEnd, isUnderConfigTimeStart, isTimeSpanIncorrect, possibleTimeEnd) {
                         // Entering the function, we know timeStart and timeEnd don't match
                         // rules for booking
-
                         var shouldDateEndRefresh = false;
 
                         if (isOverConfigTimeEnd) {
@@ -189,68 +188,6 @@
                             }
                         }
                     }
-                    
-
-
-                    // TODO : tout ce qui est en dessous devrait se trouver dans un ou plusieurs fichiers
-                    /*
-                    function IsOver(time, timeCompared) {
-                        if (parseInt(time.hour) < parseInt(timeCompared.hour)) {
-                            return false;
-                        }
-                        if (parseInt(time.hour) > parseInt(timeCompared.hour)) {
-                            return true;
-                        }
-                        if (parseInt(time.minutes) > parseInt(timeCompared.minutes)) {
-                            return true;
-                        }
-                        return false;
-                    }
-
-                    function AddMinutesToTime(time, minutes) {
-                        time.minutes = parseInt(time.minutes) + minutes;
-                        ConvertMinutesToHour(time);
-
-                        return time;
-
-                        function ConvertMinutesToHour(time) {
-                            if (time.minutes >= 60) {
-                                time.hour = parseInt(time.hour) + 1;
-                                time.minutes -= 60;
-                                ConvertMinutesToHour(time);
-                            }
-                            else {
-                                return time;
-                            }
-                        }
-                    }
-                    function RemoveMinutesFromTime(time, minutes) {
-                        time.minutes = parseInt(time.minutes) - minutes;
-                        ConvertMinutesToHour(time);
-
-                        return time;
-
-                        function ConvertMinutesToHour(time) {
-                            if (time.minutes < 0) {
-                                time.hour = parseInt(time.hour) - 1;
-                                time.minutes += 60;
-                                ConvertMinutesToHour(time);
-                            }
-                            else {
-                                return time;
-                            }
-                        }
-                    }
-
-
-
-                    function matchInArray(array, value) {
-                        for (var i = 0; i < array.length; i++) {
-                            if (parseInt(array[i]) == value) {
-                                return array[i];
-                            }
-                        }
-                    }*/
                 }],
             }
     };

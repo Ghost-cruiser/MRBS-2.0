@@ -1,6 +1,6 @@
 ﻿(function () {
     'use strict';
-    angular.module('shared').directive('nwDatePicker',
+    angular.module('nwprototypes').directive('nwDatePicker',
         [function () {
             return {
                 scope: { selectedDate: '=selectedDate', onDateChanged: '=onDateChanged', },

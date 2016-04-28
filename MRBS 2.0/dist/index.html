@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+
+<html lang="fr" data-ng-app="MRBS">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+    <link rel="stylesheet" href="css/style.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+
+    <title>Maison des Ligues de Lorraine</title>
+
+</head>
+
+<body>
+    <div class="full-size" role="document">
+        <!--BANNER-->
+        <div data-ng-controller="UserController"
+             role="banner"
+             style="height:10%; width:100%">
+            <!--Put in a directive-->
+            <div class="navigation-header  full-size">
+                <div class="pull-left">
+                    <h3 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-weight:bold">M2L - MRBS 2.0</h3>
+                    <h4 style="font-family: Arial; font-style:italic">Système de Réservation des Salles</h4>
+                </div>
+
+                <div id="nav-hd-paramicons" class="pull-right flex-line" 
+                     style="justify-content:space-between; width:15%; height:100%">
+                    <div>
+                        <span class="glyphicon glyphicon-question-sign small-menu-glyph"></span>
+                        <span class="glyphicon glyphicon-cog small-menu-glyph"></span>
+                    </div>
+                    <div id="nav-hd-logpanel" 
+                         style="display:flex; flex-basis: 60%; -ms-flex-direction: column; -webkit-flex-direction: column; flex-direction: column; align-items:center">
+                        <span class="header-text">
+                            Bonjour {{CurrentUser}}
+                        </span>
+                        <span class="glyphicon glyphicon-off small-menu-glyph"
+                              data-ng-click="unlogUser()">
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!--BODY-->
+        <div style="display:flex; padding-top:0.1%;" 
+             class="full-size"
+             role="main">
+
+            <div data-nw-navigation-menu=""
+                 style="width:17%; height:90%">
+            </div>
+
+            <div style="width:83%;
+                 height:90%;
+                 background-color:lightgray;">
+
+                <div data-ng-class="view-frame"
+                     class="ng-view mainview full-size">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="lib/angularJS/angular.min.js"></script>
+    <script src="lib/angularJS/angular-route.min.js"></script>
+    <script src="lib/angularJS/angular-cookies.min.js"></script>
+
+    <script src="js/mrbs-2.0.min.js"></script>
+
+</body>
+
+</html>

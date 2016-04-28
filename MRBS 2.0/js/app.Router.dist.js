@@ -14,31 +14,31 @@
 
                 .when('/Authentification', {
                     controller: 'loginCtrl',
-                    templateUrl: 'js/components/authentication/login.html',
+                    templateUrl: 'pages/login.html',
                     controllerAs: 'ctrl'
                 })
 
                 .when('/Salles', {
                     controller: 'AreaEditController',
-                    templateUrl: 'js/components/admin/areas/areaEdit.html',
+                    templateUrl: 'pages/areaEdit.html',
                     controllerAs: 'ctrl'
                 })
 
                 .when('/Calendrier', {
                     controller: 'PlanningController',
-                    templateUrl: 'js/components/planning/planning.html',
+                    templateUrl: 'pages/planning.html',
                     controllerAs: 'ctrl'
                 })
 
                 .when('/Aide', {
                     controller: '',
-                    templateUrl: 'js/components/help/help.html',
+                    templateUrl: 'pages/help.html',
                     controllerAs: 'ctrl'
                 })
 
                 .when('/Reservations', {
                     controller: 'BookingController',
-                    templateUrl: 'js/components/booking/booking.html',
+                    templateUrl: 'pages/booking.html',
                     controllerAs: 'ctrl'
                 })
 
